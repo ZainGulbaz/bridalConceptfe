@@ -35,17 +35,17 @@ const theme = createTheme();
 
 export default function FirstLogin() {
   let navigate = useNavigate();
-  let email = useSelector((Store) => Store.DataReducer);
+  let email = useSelector((data) => data.emailDataReducer);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     navigate(HOME);
-    const res = await Axios.put("http://localhost:3006/setpassword", {
+    const res = await Axios.put("/updateFirstLogin", {
       password: data.get("password"),
       email
     });
-  };
+     };
 
   return (
     <ThemeProvider theme={theme}>

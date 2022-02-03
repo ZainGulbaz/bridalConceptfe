@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import  {emailAction} from "../../Redux/Actions";
+import  {emailAction} from "../../Redux/Actions/userAction";
 import { LinearProgress } from "@mui/material";
 import {HOME,FIRSTLOGIN} from  "../../Routes/Routes"
 import Axios from "axios";
@@ -49,15 +49,14 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     setShowLoader(true);
-    
-
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     //Getting Data from backend after form submission
     let email = data.get("email");
     let password = data.get("password");
-    Axios.post("http://localhost:3006/getpassword", { email, password })
+    Axios.post("/getLoginData", { email, password })
       .then((res) => {
+        console.log(res);
         if (!res.data?.isPass) {
           setTimeout(() => {
             setShowLoader(false);
@@ -70,13 +69,11 @@ export default function Login() {
         } else if (res.data?.isPass && !res.data?.isFirstLogin) {
           navigate(HOME);
         }
-       
-        
-      })
+       })
       .catch((err) => console.log(err));
-
+     localStorage.setItem("email",email)
       dispatch(emailAction(email));
-      navigate(FIRSTLOGIN);
+      
       
   };
 

@@ -12,7 +12,7 @@ import Stack from "@mui/material/Stack";
 import { Icon, useStyles } from "../../Themes/Styles/HeaderStyle";
 import DropDown from "./Dropdown";
 import Sidebar from "../Sidebar/Sidebar";
-import {HOME} from "../../Routes/Routes";
+import { HOME} from "../../Routes/Routes";
 import { useNavigate } from "react-router";
 import {
   NotificationsNoneOutlined,
@@ -24,6 +24,10 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const navigate = useNavigate();
   const classes = useStyles();
+
+  React.useEffect(()=>{
+    console.log("Dashboard")
+  },[])
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);

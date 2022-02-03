@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
+import { Link } from 'react-router-dom';
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,6 +13,8 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useTheme } from "@material-ui/core";
 import { ThemeProvider } from "@emotion/react";
+import {useDispatch,useSelector} from "react-redux"
+import {clientData} from "../../Redux/Actions/userAction"
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -57,11 +60,20 @@ const StyledMenu = styled((props) => (
 }));
 
 export default function DropDown() {
+  const dispatch=useDispatch()
+  const client=useSelector((state)=>state.clientData)
+ const {userData}=client
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+React.useEffect(()=>{
+  const emailData=localStorage.getItem("email")
+  dispatch(clientData(emailData))
+},[dispatch])
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -91,7 +103,8 @@ export default function DropDown() {
             variant="h6"
             sx={{ fontWeight: "bolder", color: "#000000" }}
           >
-            Dina Hawidi
+            {userData?(<div>{userData.first_name}  {userData.last_name}</div>):(<div>Loading...</div>)}
+            
           </Typography>
         </Button>
         <StyledMenu
@@ -102,15 +115,15 @@ export default function DropDown() {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-        >
+        ><Link to="/profile">
           <MenuItem
             onClick={handleClose}
             disableRipple
             sx={{ color: "#000000" }}
           >
             <EditIcon />
-            Edit
-          </MenuItem>
+             Update
+          </MenuItem></Link>
           <MenuItem
             onClick={handleClose}
             disableRipple

@@ -10,9 +10,8 @@ import Tryon from "./Components/Tryon/Tryon";
 import Login from "./Components/Login/Login";
 import FirstLogin from "./Components/Login/FirstLogin";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { HOME, TRYON, LOGIN, FIRSTLOGIN } from "./Routes/Routes";
-import OrderDetails from "./Components/OrderDetails/OrderDetails";
-
+import { HOME, TRYON, LOGIN, FIRSTLOGIN,PROFILE } from "./Routes/Routes";
+import Profile from "./Components/Header/Profile";
 import "./App.css";
 
 const App = () => {
@@ -32,7 +31,7 @@ const App = () => {
             <Routes>
               <Route exact path={TRYON} element={<Tryon />} />
               <Route exact path={HOME} element={<Home />} />
-              <Route exact path={"/orderdetails"} element={<OrderDetails/>} />
+              <Route exact path={PROFILE} element={<Profile />} />
             </Routes>
           </Grid>
           <Routes>
