@@ -66,21 +66,22 @@ const Sidebar = () => {
         >
           APPOINTMENTS
         </Typography>
-        {/* {appointmentInfo?.length>0?(appointmentInfo?.map((data)=>{return <div>
+        {appointmentInfo?.length>0?(appointmentInfo?.map((data)=>{return <div>
           <Notification
           icon={<NotificationsActiveOutlined />}
-          details={data.customer_note}
-          duration={"Duration : " + data.duration+" mins"}
-          location={"Location : " +data.location}
-         date={moment(data.start_at).format('ll')}
+          details={data?.customer_note}
+          duration={"Duration : " + data?.duration+" mins"}
+          location={"Location : " +data?.location}
+         date={moment(data?.start_at).format('ll')}
         />
-      </div>})): (<Typography
+      </div>
+      })): (<Typography
           variant="h6"
           align="left"
           sx={{ fontWeight: "bold", ml: 1 }}
         >
           Currently,No Appointments
-        </Typography>)} */}
+        </Typography>)}
 
         <Typography
           variant="h6"
