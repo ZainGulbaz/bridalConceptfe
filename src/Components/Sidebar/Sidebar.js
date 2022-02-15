@@ -13,7 +13,8 @@ import moment from "moment"
 const Sidebar = () => {
   const dispatch=useDispatch()
   const appointment=useSelector((state)=>state.appointData)
- const {appointmentInfo}=appointment
+ let {appointmentInfo}=appointment
+
   React.useEffect(()=>{
     const emailData=localStorage.getItem("email")
     dispatch(appointmentData(emailData))
@@ -66,22 +67,21 @@ const Sidebar = () => {
         >
           APPOINTMENTS
         </Typography>
-        {/* {appointmentInfo?.length>0?(appointmentInfo?.map((data)=>{return <div>
+        {appointmentInfo?(appointmentInfo.map(function(data,index){return <div>
           <Notification
           icon={<NotificationsActiveOutlined />}
-          details={data?.customer_note}
-          duration={"Duration : " + data?.duration+" mins"}
-          location={"Location : " +data?.location}
-         date={moment(data?.start_at).format('ll')}
+          details={data.customer_note}
+          duration={"Duration : " + data.duration+" mins"}
+          location={"Location : " +data.location}
+         date={moment(data.start_at).format('ll')}
         />
-      </div>
-      })): (<Typography
+      </div>})): (<Typography
           variant="h6"
           align="left"
           sx={{ fontWeight: "bold", ml: 1 }}
         >
           Currently,No Appointments
-        </Typography>)} */}
+        </Typography>)}
 
         <Typography
           variant="h6"

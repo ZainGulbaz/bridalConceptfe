@@ -41,7 +41,7 @@ export default function FirstLogin() {
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     navigate(HOME);
-    const res = await Axios.put("/updateFirstLogin", {
+    const res = await Axios.put("https://bridalconcept.herokuapp.com/updateFirstLogin", {
       password: data.get("password"),
       email
     });

@@ -3,7 +3,7 @@ import Axios from 'axios'
 export const clientData=(email)=>async(dispatch)=>{
  try{
 
-  const {data}=await Axios.get( `/clientData/${email}`);
+  const {data}=await Axios.get( `https://bridalconcept.herokuapp.com/clientData/${email}`);
   localStorage.setItem("userInfo",JSON.stringify(data))
   dispatch({type:"Success_4_CLIENT",payload:data})
 }catch(error){
@@ -15,7 +15,7 @@ dispatch({type:"FAIL_REQUEST_4_CLIENT",payload:error.response && error.response.
 
 export const updateData=(user,email)=>async(dispatch)=>{
   try{
-   const {data}=await Axios.put( `/updateData/${email}`,user);
+   const {data}=await Axios.put( `https://bridalconcept.herokuapp.com/updateData/${email}`,user);
   localStorage.setItem("userInfo",JSON.stringify(data))
    dispatch({type:"Success_4_CLIENT",payload:data})
  }catch(error){

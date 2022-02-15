@@ -3,7 +3,7 @@ import Axios from 'axios'
 export const appointmentData=(email)=>async(dispatch)=>{
  try{
 
-  const {data}=await Axios.get(`/appointmentData/${email}`);
+  const {data}=await Axios.get(`https://bridalconcept.herokuapp.com/appointmentData/${email}`);
   localStorage.setItem("appointmentInfo",JSON.stringify(data))
   dispatch({type:"Success_4_APPOINT",payload:data})
 }catch(error){
