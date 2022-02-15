@@ -11,7 +11,7 @@ import {appointmentReducer} from "../Reducer/appointmentReducer";
     
      },
      appointData:{
-        appointmentInfo:localStorage.getItem("appointmentInfo")?JSON.parse(localStorage.getItem("appointmentInfo")) :null,
+        appointmentInfo:localStorage.getItem("appointmentInfo")?JSON.parse(localStorage.getItem("appointmentInfo")) :[],
    
     },
     
