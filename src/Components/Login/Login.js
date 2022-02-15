@@ -54,7 +54,7 @@ export default function Login() {
     //Getting Data from backend after form submission
     let email = data.get("email");
     let password = data.get("password");
-    Axios.post("/getLoginData", { email, password })
+    Axios.post(process.env.REACT_APP_BASE_URL + "/getLoginData", { email, password })
       .then((res) => {
         console.log(res);
         if (!res.data?.isPass) {

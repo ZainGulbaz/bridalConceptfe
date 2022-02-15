@@ -44,7 +44,7 @@ const Home = () => {
             sx={{ height: "100%", p: 1 }}
           >
             <img
-              src="https://media-exp1.licdn.com/dms/image/C5603AQGdP53vy5BfgA/profile-displayphoto-shrink_200_200/0/1618297689151?e=1642032000&v=beta&t=JKwi4xXKtgT7K4QKP4KV5NonEQHWiW2NjsckCWuw5fg"
+              src="https://www.seekpng.com/png/full/41-410093_circled-user-icon-user-profile-icon-png.png"
               alt="Profile Picture"
               className="profileImg"
             />
