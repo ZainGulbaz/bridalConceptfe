@@ -5,10 +5,20 @@ import {
   NotificationsActiveOutlined,
   FileUploadOutlined,
   FileCopyOutlined,
-  CheckroomOutlined,
+  CheckroomOutlined
 } from "@mui/icons-material";
-
+import {appointmentData} from "../../Redux/Actions/appointmentAction"
+import {useDispatch,useSelector} from "react-redux"
+import moment from "moment"
 const Sidebar = () => {
+  const dispatch=useDispatch()
+  const appointment=useSelector((state)=>state.appointData)
+ const {appointmentInfo}=appointment
+  React.useEffect(()=>{
+    const emailData=localStorage.getItem("email")
+    dispatch(appointmentData(emailData))
+  },[dispatch])
+  
   return (
     <>
       <Box
@@ -48,7 +58,29 @@ const Sidebar = () => {
           details="Invoice Due"
           time="12:40"
           date="Jan 2022"
+        /> 
+        <Typography
+          variant="h6"
+          align="left"
+          sx={{ fontWeight: "bold", ml: 1 }}
+        >
+          APPOINTMENTS
+        </Typography>
+        {appointmentInfo?.length>0?(appointmentInfo.map((data)=>{return <div>
+          <Notification
+          icon={<NotificationsActiveOutlined />}
+          details={data.customer_note}
+          duration={"Duration : " + data.duration+" mins"}
+          location={"Location : " +data.location}
+         date={moment(data.start_at).format('ll')}
         />
+      </div>})): (<Typography
+          variant="h6"
+          align="left"
+          sx={{ fontWeight: "bold", ml: 1 }}
+        >
+          Currently,No Appointments
+        </Typography>)}
 
         <Typography
           variant="h6"

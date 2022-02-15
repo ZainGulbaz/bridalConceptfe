@@ -56,8 +56,9 @@ const Home = () => {
             </Box>
           </Stack>
         </Grid>
-        <Grid item md={3} xs={6} sx={{ height: "20%" }}>
-          <Tab details="Order Details" icon={<DetailsOutlined />} />
+        <Grid item md={3} xs={6} sx={{ height: "20%" }}
+        onClick={()=>navigate("/orderdetails")}>
+          <Tab details="Order Details" icon={<DetailsOutlined />}/>
         </Grid>
         <Grid item xs={6} md={3} sx={{ height: "20%" }}>
           <Tab details="File Center" icon={<InsertDriveFileOutlined />} />

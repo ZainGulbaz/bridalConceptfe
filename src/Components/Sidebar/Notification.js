@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Typography, Stack } from "@mui/material";
 import { useStyles } from "../../Themes/Styles/NotificationStyle";
 
-const Notification = ({ details, date, time, icon }) => {
+const Notification = ({ details, date, time, icon,duration,location }) => {
   const classes = useStyles();
   return (
     <>
@@ -35,6 +35,19 @@ const Notification = ({ details, date, time, icon }) => {
                 {date}
               </Typography>
             </Stack>
+            <Stack direction="row" sx={{ mt: 1 }}>
+              
+              <Typography variant="caption" sx={{ ml: 1, fontWeight: "bold" }}>{location}</Typography>
+             
+             
+            </Stack>
+            <Stack direction="row" sx={{ mt: 1 }}>
+              
+              <Typography variant="caption" sx={{ ml: 1, fontWeight: "bold" }}>{duration}</Typography>
+            
+             
+            </Stack>
+            
           </Grid>
         </Grid>
       </Box>
