@@ -67,7 +67,7 @@ const Sidebar = () => {
         >
           APPOINTMENTS
         </Typography>
-        {appointmentInfo?(appointmentInfo.map(function(data,index){return <div>
+        {appointmentInfo>0?((appointmentInfo).map((data)=>{return <div>
           <Notification
           icon={<NotificationsActiveOutlined />}
           details={data.customer_note}
@@ -82,6 +82,7 @@ const Sidebar = () => {
         >
           Currently,No Appointments
         </Typography>)}
+
 
         <Typography
           variant="h6"
