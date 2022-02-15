@@ -66,7 +66,7 @@ const Sidebar = () => {
         >
           APPOINTMENTS
         </Typography>
-        {appointmentInfo?.length>0?(appointmentInfo.map((data)=>{return <div>
+        {appointmentInfo?.length>0?(appointmentInfo?.map((data)=>{return <div>
           <Notification
           icon={<NotificationsActiveOutlined />}
           details={data.customer_note}
