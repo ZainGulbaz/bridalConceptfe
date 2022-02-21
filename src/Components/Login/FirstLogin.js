@@ -35,7 +35,16 @@ const theme = createTheme();
 
 export default function FirstLogin() {
   let navigate = useNavigate();
-  let email = useSelector((data) => data.emailDataReducer);
+  const clientEmail= useSelector(store=>{
+    if(store.clientData.userData.client_email)
+    {
+      return store?.clientData?.userData?.client_email 
+    }
+    else 
+    {
+      return "test@gmail.com"
+    }
+   });
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
