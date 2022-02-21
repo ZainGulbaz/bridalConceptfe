@@ -49,7 +49,7 @@ const Home = () => {
               className="profileImg"
             />
             <Box sx={{ ml: 2 }}>
-              <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+              <Typography variant="h5" sx={{ fontWeight: "bold", textTransform:"uppercase" }}>
               {userData?(<div>{userData.first_name}  {userData.last_name}</div>):(<div>Loading...</div>)}
               </Typography>
               <Typography variant="caption">Stylist</Typography>

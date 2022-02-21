@@ -27,7 +27,7 @@ const InvoiceDetails = () => {
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
-    Axios.post("https://bridalconcept.herokuapp.com/getInvoiceDetails", {
+    Axios.post("http://bridalconcept.herokuapp.com/getInvoiceDetails", {
       email: clientEmail,
     })
       .then((res) => {
