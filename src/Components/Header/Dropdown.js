@@ -1,20 +1,20 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import EditIcon from "@mui/icons-material/Edit";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import LogoutIcon from '@mui/icons-material/Logout';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useTheme } from "@material-ui/core";
 import { ThemeProvider } from "@emotion/react";
 import {useDispatch,useSelector} from "react-redux"
-import {clientData} from "../../Redux/Actions/userAction"
+import {clientData,emailAction} from "../../Redux/Actions/userAction";
+import {LOGIN} from "../../Routes/Routes";
+
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -60,7 +60,8 @@ const StyledMenu = styled((props) => (
 }));
 
 export default function DropDown() {
-  const dispatch=useDispatch()
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
   const client=useSelector((state)=>state.clientData)
  const {userData}=client
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -128,27 +129,19 @@ React.useEffect(()=>{
             onClick={handleClose}
             disableRipple
             sx={{ color: "#000000" }}
+            onClick={()=>
+              {
+                navigate(LOGIN);
+                // dispatch(emailAction("test@gmail.com"));
+                localStorage.setItem("email","test@gmail.com");
+
+              }}
           >
-            <FileCopyIcon />
-            Duplicate
+            <LogoutIcon />
+            Logout
           </MenuItem>
           <Divider sx={{ my: 0.5 }} />
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-            sx={{ color: "#000000" }}
-          >
-            <ArchiveIcon />
-            Archive
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-            sx={{ color: "#000000" }}
-          >
-            <MoreHorizIcon />
-            More
-          </MenuItem>
+         
         </StyledMenu>
       </ThemeProvider>
     </>
