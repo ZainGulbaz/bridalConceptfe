@@ -14,7 +14,7 @@ const columns = [
 ];
 
 const InvoiceDetails = () => {
-  const clientEmail= useSelector(store=>store?.clientData.userData.client_email);
+  const clientEmail= useSelector(store=>store?.clientData?.userData?.client_email);
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {

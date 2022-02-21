@@ -19,7 +19,7 @@ export const DataReducer = (state , action) => {
     return action.payload.email;
     
     default:
-    return 0;
+    return "test@gmail.com";
   }
 };
 
