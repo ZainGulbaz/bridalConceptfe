@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Typography } from "@material-ui/core";
+import { useSelector } from "react-redux";
 import Axios from "axios";
 
 const columns = [
-  { field: "id", headerName: "NUMBER", width: 200 },
-  { field: "deliveryDate", headerName: "DELIVERY DATE", width: 200 },
-  { field: "status", headerName: "STATUS", width: 200 },
-  { field: "createdAt", headerName: "CREATED AT", width: 200 },
+  { field: "id", headerName: "NUMBER", width: 125 },
+  { field: "deliveryDate", headerName: "DELIVERY DATE", width: 175 },
+  { field: "status", headerName: "STATUS", width: 100 },
+  { field: "createdAt", headerName: "CREATED AT", width: 175 },
+  { field: "amount", headerName: "Amount", width: 100 },
+  { field: "orderID", headerName: "ORDER ID", width: 200 },
 ];
 
 const InvoiceDetails = () => {
+  const clientEmail= useSelector(store=>store?.clientData.userData.client_email);
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
     Axios.post("https://bridalconcept.herokuapp.com/getInvoiceDetails", {
-      email: "Joe@gmail.com",
+      email: clientEmail,
     })
       .then((res) => {
-        setInvoices(res.data?.newInvoices);
+      setInvoices(res.data?.newInvoices);
       })
       .catch(console.log);
   }, []);
