@@ -132,8 +132,9 @@ React.useEffect(()=>{
             onClick={()=>
               {
                 navigate(LOGIN);
-                // dispatch(emailAction("test@gmail.com"));
+                
                 localStorage.setItem("email","test@gmail.com");
+                window.location.reload();
 
               }}
           >

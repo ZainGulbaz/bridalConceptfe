@@ -47,7 +47,10 @@ const App = () => {
               !isMobile && <Sidebar />}
           </Grid>
         </Grid>
-        <Footer />
+        {location.pathname !== LOGIN && (
+          <Footer />
+        )}
+       
       </ThemeProvider>
     </>
   );
