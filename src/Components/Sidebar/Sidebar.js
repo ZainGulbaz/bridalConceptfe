@@ -75,13 +75,15 @@ const Sidebar = () => {
           location={"Location : " +data.location}
          date={moment(data.start_at).format('ll')}
         />
-      </div>})): (<Typography
-          variant="h6"
-          align="left"
-          sx={{ fontWeight: "bold", ml: 1 }}
-        >
-          Currently,No Appointments
-        </Typography>)}
+      </div>})): (<div>
+          <Notification
+          icon={<NotificationsActiveOutlined />}
+          details="No Appointments"
+          time="00:00"
+          date="00 00"
+        
+        />
+      </div>)}
 
 
         <Typography

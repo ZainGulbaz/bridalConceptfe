@@ -25,10 +25,6 @@ export default function Header() {
   const navigate = useNavigate();
   const classes = useStyles();
 
-  React.useEffect(()=>{
-    console.log("Dashboard")
-  },[])
-
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };

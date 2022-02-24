@@ -56,7 +56,7 @@ export default function Login() {
     let password = data.get("password");
     Axios.post("https://bridalconcept.herokuapp.com/getLoginData", { email, password })
       .then((res) => {
-        console.log(res);
+        
         if (!res.data?.isPass) {
           setTimeout(() => {
             setShowLoader(false);
