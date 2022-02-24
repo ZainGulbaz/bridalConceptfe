@@ -134,7 +134,7 @@ React.useEffect(()=>{
                 navigate(LOGIN);
                 
                 localStorage.setItem("email","test@gmail.com");
-                window.location.reload();
+                
 
               }}
           >

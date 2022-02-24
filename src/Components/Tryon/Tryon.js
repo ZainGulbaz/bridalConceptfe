@@ -3,10 +3,12 @@ import { Box, LinearProgress } from "@mui/material";
 
 const Tryon = () => {
   const [loader, setLoader] = useState(false);
+ 
 
   useEffect(() => {
     setLoader(true);
     setTimeout(() => setLoader(false), 7000);
+    
   }, []);
 
   function resizeIframe(obj) {
@@ -23,7 +25,7 @@ const Tryon = () => {
       )}
       <Box sx={{ mt: 4, height: "100%", ml: 1, mr: 1 }}>
         <iframe
-          src="https://square.site/appointments/buyer/widget/z4r15yv0bq08zh/LTRT9X4H2B73H"
+          src={`${process.env.url}`}
           title="Schedule Appointment"
           width="100%"
           height="100%"

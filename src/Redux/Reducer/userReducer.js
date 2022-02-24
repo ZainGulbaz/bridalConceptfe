@@ -13,13 +13,13 @@ export  const clientReducer=(state={userData:{}},action)=>{
 
 }
 
-export const DataReducer = (state , action) => {
+export const DataReducer = (state={userData:{}} , action) => {
   switch (action.type) {
     case "email":
-    return action.payload.email;
+    return { ...state,    userData:action.payload};
     
     default:
-    return "test@gmail.com";
+    return state;
   }
 };
 

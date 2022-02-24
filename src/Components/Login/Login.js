@@ -50,6 +50,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     setShowLoader(true);
     event.preventDefault();
+    
     const data = new FormData(event.currentTarget);
     //Getting Data from backend after form submission
     let email = data.get("email");

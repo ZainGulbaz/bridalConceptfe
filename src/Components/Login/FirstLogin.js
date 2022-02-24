@@ -35,16 +35,10 @@ const theme = createTheme();
 
 export default function FirstLogin() {
   let navigate = useNavigate();
-  const clientEmail= useSelector(store=>{
-    if(store.clientData.userData.client_email)
-    {
-      return store?.clientData?.userData?.client_email 
-    }
-    else 
-    {
-      return "test@gmail.com"
-    }
-   });
+ 
+  let email = useSelector((data) => data.emailDataReducer?.userData);
+  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -52,7 +46,7 @@ export default function FirstLogin() {
     navigate(HOME);
     const res = await Axios.post("https://bridalconcept.herokuapp.com/updateFirstLogin", {
       password: data.get("password"),
-      email:clientEmail
+      email
     });
      };
 
