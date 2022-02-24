@@ -23,6 +23,7 @@ const App = () => {
 
   return (
     <>
+   
       <ThemeProvider theme={fontTheme}>
         {location.pathname !== LOGIN && location.pathname !== FIRSTLOGIN && (
           <Header />
