@@ -30,7 +30,7 @@ const Sidebar = () => {
           py: 2,
           minWidth: "100%",
           mt: 1,
-        }}
+          px:0.5        }}
       >
         <Typography
           variant="h6"
