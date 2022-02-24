@@ -8,6 +8,7 @@ const Tryon = () => {
   useEffect(() => {
     setLoader(true);
     setTimeout(() => setLoader(false), 7000);
+    console.log(process.env.URL);
     
   }, []);
 
@@ -25,7 +26,7 @@ const Tryon = () => {
       )}
       <Box sx={{ mt: 4, height: "100%", ml: 1, mr: 1 }}>
         <iframe
-          src={`${process.env.url}`}
+          src={`${process.env.URL}`}
           title="Schedule Appointment"
           width="100%"
           height="100%"
