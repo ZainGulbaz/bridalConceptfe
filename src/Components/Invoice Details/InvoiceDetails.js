@@ -9,8 +9,8 @@ const columns = [
   { field: "deliveryDate", headerName: "DELIVERY DATE", width: 175 },
   { field: "status", headerName: "STATUS", width: 100 },
   { field: "amount", headerName: "AMOUNT", width: 100 },
-  { field: "orderID", headerName: "ORDER ID", width: 200 },
-  { field: "invUrl", headerName: "INV URL", width: 150 }
+  { field: "orderID", headerName: "ORDER ID", width: 250 },
+  { field: "invUrl", headerName: "INV URL", width: 250 }
 
   
 ];
