@@ -8,9 +8,11 @@ const columns = [
   { field: "id", headerName: "NUMBER", width: 125 },
   { field: "deliveryDate", headerName: "DELIVERY DATE", width: 175 },
   { field: "status", headerName: "STATUS", width: 100 },
-  { field: "createdAt", headerName: "CREATED AT", width: 175 },
-  { field: "amount", headerName: "Amount", width: 100 },
-  { field: "orderID", headerName: "ORDER ID", width: 300 },
+  { field: "amount", headerName: "AMOUNT", width: 100 },
+  { field: "orderID", headerName: "ORDER ID", width: 200 },
+  { field: "invUrl", headerName: "INV URL", width: 150 }
+
+  
 ];
 
 const InvoiceDetails = () => {
